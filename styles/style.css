@@ -78,6 +78,13 @@ body{
     left: 50%;
 }
 
+.register-form{
+    left: -50%;
+}
+.register-form .form-title {
+    margin: 40px 20px;
+}
+
 .form-inputs {
     width: 100%;
 }
@@ -126,6 +133,10 @@ body{
 }
 .forgot-password a:hover {
     text-decoration: underline;  
+}
+.remember-me label {
+    color: #ffff;
+    font-size: 14px;
 }
 .submit-button {
     display: flex;
