@@ -24,8 +24,8 @@
                         <ion-icon name="person-outline" class="icon"></ion-icon>
                     </div>
                     <div class="input-box">
-                        <input type="password" class="inputs input-field" placeholder="Password" required>
-                        <ion-icon name="lock-closed-outline" class="icon"></ion-icon>
+                        <input type="password" oninput="changeIcon(this.value)" id="loginPassword" class="inputs input-field" placeholder="Password" required>
+                        <ion-icon name="lock-closed-outline" class="icon" id="login-password-icon" onclick="myLoginPassword()"></ion-icon>
                     </div>
                     <div class="forgot-password">
                         <a href="#">Forgot Password?</a>
@@ -68,8 +68,8 @@
                         <ion-icon name="mail-outline" class="icon"></ion-icon>
                     </div>
                     <div class="input-box">
-                        <input type="password" class="inputs input-field" placeholder="Password" required>
-                        <ion-icon name="lock-closed-outline" class="icon"></ion-icon>
+                        <input type="password" oninput="changeIcon(this.value)" id="registerPassword" class="inputs input-field" placeholder="Password" required>
+                        <ion-icon name="lock-closed-outline" class="icon" id="register-password-icon" onclick="myRegisterPassword()"></ion-icon>
                     </div>
                     <div class="remember-me">
                         <input type="checkbox" id="remember-me-check">

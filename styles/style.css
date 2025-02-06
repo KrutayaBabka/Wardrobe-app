@@ -6,7 +6,8 @@
 }
 
 body{
-    background-image: url(https://shoplvng.co.in/cdn/shop/articles/blog_cover_13.png?v=1670068492);
+    background-image: url(../assets/background_6.jpg);
+
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
