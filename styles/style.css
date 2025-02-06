@@ -113,3 +113,55 @@ body{
     width: 17px;
     height: 17px;
 }
+.forgot-password, .remember-me {
+    display: flex;
+    justify-content: right;
+    gap: 5px;
+}
+.forgot-password a {
+    color: #ffff;
+    text-decoration: none;
+    font-size: 14px;
+
+}
+.forgot-password a:hover {
+    text-decoration: underline;  
+}
+.submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #21264D;
+    cursor: pointer;
+    transform: .3s;
+}
+.submit-button:hover {
+    gap: 15px;
+}
+
+.social-login {
+    display: flex;
+    gap: 20px;
+    margin: 20px;
+}
+.social-login-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #ffff;
+    cursor: pointer;
+    transition: .2s;
+}
+.social-login-icon {
+    width: 24px;
+}
+.social-login-box:hover {
+    transform: scale(0.9);
+    color: #21264D;
+}
