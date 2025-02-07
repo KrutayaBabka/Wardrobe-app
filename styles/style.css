@@ -51,7 +51,7 @@ body{
     color: #ffff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transition: .3s;
+    transition: 0.33s;
 }
 .button-1{
     background: #21264D;
@@ -133,7 +133,6 @@ body{
     color: #ffff;
     text-decoration: none;
     font-size: 14px;
-
 }
 .forgot-password a:hover {
     text-decoration: underline;  
@@ -149,7 +148,7 @@ body{
     gap: 10px;
     background: #21264D;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.33s;
 }
 .submit-button:hover {
     scale: 0.98;
@@ -171,14 +170,40 @@ body{
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    color: #ffff;
     cursor: pointer;
-    transition: .3s;
+    transition: transform 0.33s ease-in-out;
 }
+
 .social-login-icon {
     width: 24px;
+    color: white;
+    transition: color 0.33s ease-in-out; /* Плавная смена цвета */
 }
+
+/* Для SVG отдельно */
+.social-login-box svg {
+    width: 24px;
+}
+
+/* Теперь плавно меняем цвет X */
+.social-login-box svg path {
+    fill: white; /* Начальный цвет */
+    transition: fill 0.33s ease-in-out; /* Плавная анимация цвета */
+}
+
+/* Hover-эффект */
 .social-login-box:hover {
     transform: scale(0.9);
+}
+
+/* Меняем цвет иконки X при наведении */
+.social-login-box:hover svg path {
+    fill: #21264D;
+}
+
+/* Меняем цвет стандартных иконок (например, Facebook) */
+.social-login-box:hover ion-icon {
     color: #21264D;
 }
+
+
