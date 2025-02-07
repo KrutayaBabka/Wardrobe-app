@@ -51,12 +51,13 @@ body{
     color: #ffff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transition: 0.2s;
+    transition: .3s;
 }
 .button-1{
     background: #21264D;
 }
 .button:hover{
+    scale: 0.97;
     opacity: 0.85;
 }
 
@@ -68,7 +69,7 @@ body{
     align-items: center;
     width: 100%;
     padding: 0 30px;
-    transition: 0.3s;
+    transition: 0.8s;  /* time to change bettween Sign In and Sign Up */
 }
 .form-title {
     margin: 40px 0;
@@ -148,9 +149,11 @@ body{
     gap: 10px;
     background: #21264D;
     cursor: pointer;
-    transform: .3s;
+    transition: .3s;
 }
 .submit-button:hover {
+    scale: 0.98;
+    opacity: 0.85;
     gap: 15px;
 }
 
@@ -170,7 +173,7 @@ body{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     color: #ffff;
     cursor: pointer;
-    transition: .2s;
+    transition: .3s;
 }
 .social-login-icon {
     width: 24px;
