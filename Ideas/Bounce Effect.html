@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Резиновый мячик</title>
+  <style>
+    .hidden-rectangle {
+      width: 200px;
+      height: 100px;
+      background-color: red;
+      border-radius: 30px 30px 50px 50px;
+      position: absolute;
+      top: -150px; /* Начальная позиция — вне видимой области */
+      left: 50%;
+      transform: translateX(-50%);
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    @keyframes bounce {
+      0% {
+        opacity: 0;
+        top: -150px;
+      }
+      35% {
+        top: 90px;
+      }
+      60% {
+        top: 35px;
+      }
+      80% {
+        top: 60px;
+        opacity: 1;
+      }
+      95%{
+        top: 45px;
+      }
+      100% {
+        top: 50px;
+      }
+    }
+
+    @keyframes goBack {
+        0% {
+            opacity: 1;
+            top: 50px;
+        }
+        60% {
+            top: 100px;
+        }
+        100% {
+            opacity: 0.3;
+            top: -150%;
+        }
+    }
+
+    .button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="hidden-rectangle" id="rectangle"></div>
+  <button class="button" onclick="toggleRectangle()">Переключить</button>
+
+  <script>
+    let isVisible = false;
+
+    function toggleRectangle() {
+      const rectangle = document.getElementById('rectangle');
+      
+      if (isVisible) {
+        // Прямоугольник исчезает и уходит вверх
+        rectangle.style.animation = 'goBack 0.8s ease'; // Останавливаем анимацию
+        rectangle.style.opacity = '0';
+        rectangle.style.top = '-150px'; // Финальная позиция
+    } else {
+        // Прямоугольник появляется и начинает анимацию с эффектом "резинового мячика"
+        rectangle.style.animation = 'bounce 0.8s ease-out'; // Запускаем анимацию
+        rectangle.style.opacity = '1';
+        rectangle.style.top = '50px'; // Финальная позиция
+      }
+
+      // Переключаем состояние
+      isVisible = !isVisible;
+    }
+  </script>
+</body>
+</html>
