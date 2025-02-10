@@ -14,8 +14,8 @@
 
         /* Фиолетовый прямоугольник */
         .header {
-            width: 100%;
-            height: 100px; /* Изначальная высота */
+            width: 20%;
+            height: 100%; /* Изначальная высота */
             background-color: rgba(113, 50, 190, 0.95);
             backdrop-filter: blur(10px);
             color: white;
@@ -26,12 +26,8 @@
             position: fixed;
             top: 0;
             left: 20;
-            transition: height 0.85s ease, border-radius 0.85s ease, background-color 0.85s ease;; /* Добавляем анимацию для border-radius */
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-bottom-left-radius: 50%; /* Закругление нижних углов */
-            border-bottom-right-radius: 50%; /* Закругление нижних углов */
-            overflow: hidden; /* Скрываем содержимое, которое выходит за пределы */
+            transition: width 0.85s ease, border-radius 0.85s ease, background-color 0.85s ease;; /* Добавляем анимацию для border-radius */
+            border-radius: 0 20px 20px 0;
         }
 
         /* Иконка меню */
@@ -53,9 +49,8 @@
 
         /* Стили для открытого состояния */
         .header.open {
-            height: 90%; /* Высота при открытии */
-            border-bottom-left-radius: 50px; /* Закругление для нижней части */
-            border-bottom-right-radius: 50px; /* Закругление для нижней части */
+            height: 100%; /* Высота при открытии */
+            width: 80%;
             background-color: rgba(71, 18, 136, 0.9);
         }
 
@@ -76,6 +71,29 @@
         /* Основной контент */
         .main-content {
             padding: 100px 20px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                width: 100%;
+                height: 100px; /* Изначальная высота */
+                border-radius: 0 0 30px 30px;
+                overflow: hidden; /*Скрываем содержимое, которое выходит за пределы прямоугольника */
+                transition: height 0.5s ease, border-radius 0.85s ease, background-color 0.85s ease;; /* Добавляем анимацию для border-radius */
+            }
+
+            .header.open {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .header.open {
+                height: 90%; /* Высота при открытии */
+                width: 100%;
+                border-radius: 0 0 50px 50px;
+                background-color: rgba(71, 18, 136, 0.9);
+            }
+            
         }
     </style>
 </head>
