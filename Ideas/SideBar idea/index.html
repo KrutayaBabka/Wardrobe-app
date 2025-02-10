@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимация выезжающего прямоугольника</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключаем стили -->
+</head>
+<body>
+    <!-- Фиолетовый прямоугольник -->
+    <div class="header" id="header">
+        <!-- SVG иконка меню -->
+        <svg class="menu-icon" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <span class="header-text">Меню</span>
+
+        <!-- Контент, который появляется при открытии -->
+        <div class="header-content">
+            <h2>Добро пожаловать!</h2>
+            <p>Это контент, который выезжает вместе с прямоугольником.</p>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="main-content">
+        <h1>Основной контент</h1>
+        <p>Нажмите на фиолетовую панель вверху, чтобы увидеть анимацию.</p>
+    </div>
+
+    <script src="script.js"></script> <!-- Подключаем скрипт -->
+</body>
+</html>
