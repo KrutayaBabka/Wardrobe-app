@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимация выезжающего прямоугольника</title>
+    <!-- Подключаем Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles/main.css"> <!-- Подключаем стили -->
+</head>
+<body>
+    <!-- Фиолетовый прямоугольник -->
+    <div class="header" id="header">
+        <!-- SVG иконка меню -->
+        <svg class="menu-icon" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <span class="header-text">Меню</span>
+
+        <!-- Контент, который появляется при открытии -->
+        <div class="header-content">
+            <h2>Добро пожаловать!</h2>
+            <p>Это контент, который выезжает вместе с прямоугольником.</p>
+        </div>
+    </div>
+
+    <!-- Фиолетовый прямоугольник -->
+    <div class="header2" id="header2">
+        <!-- SVG иконка меню -->
+        <svg class="menu-icon2" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <span class="header-text2">Меню</span>
+
+        <!-- Контент, который появляется при открытии -->
+        <div class="header-content2">
+            <h2>Добро пожаловать2!</h2>
+            <p>Это контент, который выезжает вместе с прямоугольником2.</p>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="main-content">
+        <div class="carousel carousel1">
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="1-1"></a>
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="1-2"></a>
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="1-3"></a>
+        </div>
+    
+        <!-- Вторая карусель -->
+        <div class="carousel carousel2">
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="2-1"></a>
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="2-2"></a>
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="2-3"></a>
+        </div>
+
+        <!-- Третья карусель -->
+        <div class="carousel carousel2">
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="2-1"></a>
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="2-2"></a>
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="2-3"></a>
+        </div>
+
+        <!-- Четвертая карусель -->
+        <div class="carousel carousel2">
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="2-1"></a>
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="2-2"></a>
+            <a class="carousel-item" href="#"><img src="assets/monkey-selfie_custom-6624e8356a07d872997e801d7a04aa8cdc8fbaac.jpg" alt="2-3"></a>
+        </div>
+
+        <!-- Button Pick Up -->
+         <div class="button">
+            <button class="animated-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="arr-2" viewBox="0 0 24 24">
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  ></path>
+                </svg>
+                <span class="text">Pick Up</span>
+                <span class="circle"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arr-1" viewBox="0 0 24 24">
+                  <path
+                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                  ></path>
+                </svg>
+              </button>
+         </div>
+    </div>
+
+    <!-- Подключаем jQuery и Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/main.js"></script> <!-- Подключаем скрипт -->
+</body>
+</html>
