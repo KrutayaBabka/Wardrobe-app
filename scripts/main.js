@@ -2,6 +2,7 @@
 const header = document.getElementById('header');
 const header_right = document.getElementById('header_right');
 const close_button = document.getElementById('close_button');
+const open_right_block_button = document.getElementById('open_right_block_button');
 
 header.addEventListener('click', () => {
     // Добавить или удалить класс 'open' для header
@@ -10,6 +11,16 @@ header.addEventListener('click', () => {
     // Убедиться, что класс 'open' удаляется у header2, если он был
     if (header_right.classList.contains('open')) {
         header_right.classList.remove('open');
+    }
+});
+
+open_right_block_button.addEventListener('click', () => {
+    // Добавить или удалить класс 'open' для header
+    header_right.classList.toggle('open');
+    
+    // Убедиться, что класс 'open' удаляется у header2, если он был
+    if (header.classList.contains('open')) {
+        header.classList.remove('open');
     }
 });
 
@@ -23,11 +34,23 @@ close_button.addEventListener('click', () => {
     }
 });
 
-const card = document.getElementById('card');
-card.addEventListener('click', () => {
-    // Добавить или удалить класс 'open' для header
-    card.classList.toggle('delete');
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        // Если уже открыта, то закрываем её
+        if (card.classList.contains('delete')) {
+            card.classList.remove('delete');
+        } else {
+            // Закрываем все другие карточки
+            cards.forEach(c => c.classList.remove('delete'));
+
+            // Открываем только нажатую карточку
+            card.classList.add('delete');
+        }
+    });
 });
+
 
 
 // Carousel

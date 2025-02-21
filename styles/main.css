@@ -4,8 +4,13 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: rgb(187,70,252);
-    background: linear-gradient(90deg, rgba(187,70,252,1) 0%, rgba(171,63,251,1) 100%);
+    background: rgb(205,42,200);
+    height: 100%;
+    background: -moz-linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
+    background: linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cd2ac8",endColorstr="#7c33f6",GradientType=1);
+    padding-bottom: 20px;
 }
 
 
@@ -33,6 +38,7 @@ body {
     border-radius: 0 20px 20px 0;
     z-index: 1000;
 }
+
 
 /* Контейнер контента внутри сайдбара */
 .header-content {
@@ -245,6 +251,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: white;
+    display: none;
 }
 
 .open_button {
@@ -254,7 +261,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: white;
-    display: none;
 }
 
 .div_close_button {
@@ -265,6 +271,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: white;
     width: 50%;
+    text-align: right;
 }
 /* Стили для открытого состояния */
 
@@ -280,11 +287,11 @@ body {
     transition: all 0.85s ease;
 }
 
-.header_right.open  .div_close_button .close_button{
+.header_right.open  .div_close_button .open_button{
     display: none;
 }
 
-.header_right.open  .div_close_button .open_button{
+.header_right.open  .div_close_button .close_button{
     display: block;
 }
 
@@ -389,8 +396,32 @@ body {
     display: block;
 }
 
-.card.delete {
+.cards .card .delete_icon {
+    display: none;
+}
+
+.card.delete .delete_icon {
+    display: block;
     background-color: #8D37A3;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+    border-radius: 15%;
+}
+
+.card.delete .delete_icon ion-icon {
+    text-align: center;
+    align-items: center;
+    font-size: 50px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+}
+
+.card.delete img {
+    display: none;
 }
 
 
@@ -562,9 +593,6 @@ body {
     }
 
     /* Скрываем правый сайдбар на мобильных устройствах */
-    .header_right {
-        display: none;
-    }
 
     /* Основной контент */
     .main-content {
@@ -765,4 +793,58 @@ body {
     .main-content {
         padding-top: 70px;
     }
+
+
+
+    /* wardrob page */
+
+    .header_right {
+        width: 0;
+        height: 100%;
+        border-radius: 0 0 0 0;
+        transition: width 0.85s ease, border-radius 0.85s ease, background-color 0.85s ease;
+    }
+
+    .header_right .welcome_text {
+        display: none;
+    }
+
+    .header_right .right_main_content {
+        display: none;
+    }
+
+    .open_right_block_button {
+        display: block;
+    }
+
+    .open_right_block_button {
+        display: flex;
+        justify-content: flex-end; /* Перемещает кнопку вправо */
+        align-items: center; /* Выравнивает по центру по вертикали */
+        width: 100%; /* Занимает всю ширину родительского контейнера */
+    }
+    
+    .open_right_block_button button {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+        backdrop-filter: blur(12px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        color: white;
+    }    
+
+    .header_right.open {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(71, 18, 136, 0.9);
+    }
+
+    .header_right.open .welcome_text {
+        display: block;
+    }
+
+    .header_right.open .right_main_content {
+        display: block;
+    }
+
 }
