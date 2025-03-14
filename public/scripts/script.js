@@ -70,3 +70,57 @@ function changeIcon(value) {
         registerInputIcon.name = "lock-closed-outline";
     }
 }
+
+
+document.getElementById("register-div").addEventListener('click', async function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("registerUsername").value;
+    const email = document.getElementById("registerEmail").value;
+    const password = document.getElementById("registerPassword").value; 
+
+    const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, email, password })
+    });
+
+    const result = await response.json();
+    
+    if (response.ok) {
+        alert("You are registered, plase sign in please!");
+        window.location.href = "/login.html";
+    } else {
+        alert(result.error);
+    }
+})
+
+
+document.getElementById("login-div").addEventListener('click', async function(event){
+    event.preventDefault();
+
+    const loginUsername = document.getElementById("loginUsername").value;
+    const loginPassword = document.getElementById("loginPassword").value;
+
+    const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ loginUsername, loginPassword })
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+        console.log(result);
+        localStorage.setItem('token', result.token);
+        window.location.href = "/index.html";
+    } else {
+        alert(result.error);
+    }
+})
+
+

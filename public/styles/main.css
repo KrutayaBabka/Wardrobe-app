@@ -4,8 +4,13 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: rgb(187,70,252);
-    background: linear-gradient(90deg, rgba(187,70,252,1) 0%, rgba(171,63,251,1) 100%);
+    background: rgb(205,42,200);
+    height: 100%;
+    background: -moz-linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
+    background: linear-gradient(0deg, rgba(205,42,200,0.6404936974789917) 0%, rgba(124,51,246,0.5676645658263305) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cd2ac8",endColorstr="#7c33f6",GradientType=1);
+    padding-bottom: 20px;
 }
 
 
@@ -32,13 +37,16 @@ body {
     transition: width 0.85s ease, border-radius 0.85s ease, background-color 0.85s ease;
     border-radius: 0 20px 20px 0;
     z-index: 1000;
+    overflow: auto;
 }
+
 
 /* Контейнер контента внутри сайдбара */
 .header-content {
     padding: 20px;
     text-align: center;
     width: 90%;
+    padding-bottom: 350px;
 }
 
 /* Заголовок внутри контента (используется редко) */
@@ -236,6 +244,7 @@ body {
     transition: width 0.85s ease, border-radius 0.85s ease, background-color 0.85s ease;
     border-radius: 20px 0 0 20px;
     z-index: 1000;
+    overflow: auto;
 }
 
 .close_button {
@@ -245,6 +254,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: white;
+    display: none;
 }
 
 .open_button {
@@ -254,7 +264,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: white;
-    display: none;
 }
 
 .div_close_button {
@@ -265,6 +274,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: white;
     width: 50%;
+    text-align: right;
 }
 /* Стили для открытого состояния */
 
@@ -280,11 +290,11 @@ body {
     transition: all 0.85s ease;
 }
 
-.header_right.open  .div_close_button .close_button{
+.header_right.open  .div_close_button .open_button{
     display: none;
 }
 
-.header_right.open  .div_close_button .open_button{
+.header_right.open  .div_close_button .close_button{
     display: block;
 }
 
@@ -389,8 +399,32 @@ body {
     display: block;
 }
 
-.card.delete {
+.cards .card .delete_icon {
+    display: none;
+}
+
+.card.delete .delete_icon {
+    display: block;
     background-color: #8D37A3;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+    border-radius: 15%;
+}
+
+.card.delete .delete_icon ion-icon {
+    text-align: center;
+    align-items: center;
+    font-size: 50px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+}
+
+.card.delete img {
+    display: none;
 }
 
 
@@ -539,6 +573,198 @@ body {
 
 
 
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 10001;
+  }
+  
+  .modal-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+  }
+  
+  .modal-content h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .input_choose_img,
+  .container_types {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  /* Стили для input с datalist */
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #5E5DF0;
+    box-shadow: 0 0 5px rgba(94, 93, 240, 0.5);
+  }
+  
+  /* Стрелка для datalist */
+  input[list]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+  
+  input[list] {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjUgNi41TDEyLjA4MyA2LjA4M0w4LjUgOS42NjdWMy41SDcuNVY5LjY2N0wzLjkxNyA2LjA4M0wzLjUgNi41TDggMTFMMTIuNSA2LjVaIiBmaWxsPSIjNjY2Ii8+Cjwvc3ZnPgo='); /* SVG-иконка стрелки */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+  
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="file"]::file-selector-button {
+    padding: 10px 15px;
+    background-color: #5E5DF0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="file"]::file-selector-button:hover {
+    background-color: #4A48C2;
+  }
+  
+  .close-btn {
+    background: #5E5DF0;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .close-text {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .type-icon {
+    display: flex;
+  }
+
+  .modal-close-button {
+    height: 30px;
+  }
+
+  .modal-close-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .input-clear-icon {
+    margin: auto;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .text-add {
+    margin: auto;
+  }
+
+  .text-add h2 {
+    margin: 0;
+  }
+  
+  .close-btn:hover {
+    background-color: #4A48C2;
+    transform: translateY(-2px);
+  }
+  
+  .modal.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal.show .modal-content {
+    transform: scale(1);
+  }
+  
+  @media (max-width: 480px) {
+    .modal-content {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .modal-content h2 {
+      font-size: 1.5rem;
+    }
+  
+    input[type="text"],
+    input[type="file"] {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  
+    .close-btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+  }
+
+
+
 
 
 /* ========================================================================== */
@@ -561,10 +787,11 @@ body {
         background-color: rgba(71, 18, 136, 0.9);
     }
 
-    /* Скрываем правый сайдбар на мобильных устройствах */
-    .header_right {
-        display: none;
+    .header.open .header-content {
+        padding-bottom: 850px;
     }
+
+    /* Скрываем правый сайдбар на мобильных устройствах */
 
     /* Основной контент */
     .main-content {
@@ -765,4 +992,58 @@ body {
     .main-content {
         padding-top: 70px;
     }
+
+
+
+    /* wardrob page */
+
+    .header_right {
+        width: 0;
+        height: 100%;
+        border-radius: 0 0 0 0;
+        transition: width 0.85s ease, border-radius 0.85s ease, background-color 0.85s ease;
+    }
+
+    .header_right .welcome_text {
+        display: none;
+    }
+
+    .header_right .right_main_content {
+        display: none;
+    }
+
+    .open_right_block_button {
+        display: block;
+    }
+
+    .open_right_block_button {
+        display: flex;
+        justify-content: flex-end; /* Перемещает кнопку вправо */
+        align-items: center; /* Выравнивает по центру по вертикали */
+        width: 100%; /* Занимает всю ширину родительского контейнера */
+    }
+    
+    .open_right_block_button button {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+        backdrop-filter: blur(12px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        color: white;
+    }    
+
+    .header_right.open {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(71, 18, 136, 0.9);
+    }
+
+    .header_right.open .welcome_text {
+        display: block;
+    }
+
+    .header_right.open .right_main_content {
+        display: block;
+    }
+
 }
